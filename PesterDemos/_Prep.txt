@@ -1,0 +1,7 @@
+Make sure SQL is running and accessible
+
+Make sure Demo0 has dbo.PesterResults
+
+Make sure Demo5 has auto shrink enabled
+
+Make sure HelloWorld has exclamation points
