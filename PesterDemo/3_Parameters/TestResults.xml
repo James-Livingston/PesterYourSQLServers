@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="54" errors="0" failures="4" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2018-03-22" time="21:44:10">
+  <environment user="jlivings" machine-name="IT-M-82BJJ" cwd="C:\PesterDemo\3_Parameters" user-domain="PAYCHEX" platform="Microsoft Windows 10 Enterprise|C:\WINDOWS|\Device\Harddisk0\Partition4" nunit-version="2.5.8.0" os-version="10.0.14393" clr-version="4.0.30319.42000" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Failure" success="False" time="9.0348" asserts="0" description="Pester">
+    <results>
+      <test-suite type="TestFixture" name="C:\PesterDemo\2_SQL\1_SQLServices.Tests.ps1" executed="True" result="Failure" success="False" time="5.5626" asserts="0" description="C:\PesterDemo\2_SQL\1_SQLServices.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="SQL Server Services" executed="True" result="Failure" success="False" time="5.5626" asserts="0" description="SQL Server Services">
+            <results>
+              <test-suite type="TestFixture" name="SQL Server service" executed="True" result="Failure" success="False" time="3.5477" asserts="0" description="SQL Server service">
+                <results>
+                  <test-case description="Should be running" name="SQL Server Services.SQL Server service.Should be running" time="1.3968" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should be automatic start" name="SQL Server Services.SQL Server service.Should be automatic start" time="1.151" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected strings to be the same, but they were different.
+Expected length: 9
+Actual length:   6
+Strings differ at index 0.
+Expected: 'Automatic'
+But was:  'Manual'
+-----------^</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\PesterDemo\2_SQL\1_SQLServices.Tests.ps1: line 10
+10:             (Get-WmiObject Win32_Service | Where-Object {$_.Name -eq 'MSSQL$SQL1'}).StartMode | Should -Be 'Automatic'</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="Should be using .\SQLSVC" name="SQL Server Services.SQL Server service.Should be using .\SQLSVC" time="1" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="SQL Server Agent service" executed="True" result="Failure" success="False" time="2.0149" asserts="0" description="SQL Server Agent service">
+                <results>
+                  <test-case description="Should be running" name="SQL Server Services.SQL Server Agent service.Should be running" time="0.1117" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should be automatic start" name="SQL Server Services.SQL Server Agent service.Should be automatic start" time="0.8792" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected strings to be the same, but they were different.
+Expected length: 9
+Actual length:   6
+Strings differ at index 0.
+Expected: 'Automatic'
+But was:  'Manual'
+-----------^</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\PesterDemo\2_SQL\1_SQLServices.Tests.ps1: line 25
+25:             (Get-WmiObject Win32_Service | Where-Object {$_.Name -eq 'SQLAgent$SQL1'}).StartMode | Should -Be 'Automatic'</stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case description="Should be using .\SQLSVC" name="SQL Server Services.SQL Server Agent service.Should be using .\SQLSVC" time="1.0239" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected strings to be the same, but they were different.
+Expected length: 8
+Actual length:   11
+Strings differ at index 0.
+Expected: '.\SQLSVC'
+But was:  'LocalSystem'
+-----------^</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\PesterDemo\2_SQL\1_SQLServices.Tests.ps1: line 29
+29:             (Get-WmiObject Win32_Service | Where-Object {$_.Name -eq 'SQLAgent$SQL1'}).StartName | Should -Be '.\SQLSVC'</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\PesterDemo\2_SQL\2_Databases.Tests.ps1" executed="True" result="Failure" success="False" time="3.3449" asserts="0" description="C:\PesterDemo\2_SQL\2_Databases.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Database Settings on localhost\sql1" executed="True" result="Failure" success="False" time="3.3449" asserts="0" description="Database Settings on localhost\sql1">
+            <results>
+              <test-suite type="TestFixture" name="master" executed="True" result="Success" success="True" time="2.019" asserts="0" description="master">
+                <results>
+                  <test-case description="Should be owned by sa" name="Database Settings on localhost\sql1.master.Should be owned by sa" time="1.9906" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto close disabled" name="Database Settings on localhost\sql1.master.Should have auto close disabled" time="0.019" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto shrink disabled" name="Database Settings on localhost\sql1.master.Should have auto shrink disabled" time="0.0094" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="tempdb" executed="True" result="Success" success="True" time="0.075" asserts="0" description="tempdb">
+                <results>
+                  <test-case description="Should be owned by sa" name="Database Settings on localhost\sql1.tempdb.Should be owned by sa" time="0.0564" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto close disabled" name="Database Settings on localhost\sql1.tempdb.Should have auto close disabled" time="0.0079" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto shrink disabled" name="Database Settings on localhost\sql1.tempdb.Should have auto shrink disabled" time="0.0106" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="model" executed="True" result="Success" success="True" time="0.0941" asserts="0" description="model">
+                <results>
+                  <test-case description="Should be owned by sa" name="Database Settings on localhost\sql1.model.Should be owned by sa" time="0.0725" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto close disabled" name="Database Settings on localhost\sql1.model.Should have auto close disabled" time="0.0066" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto shrink disabled" name="Database Settings on localhost\sql1.model.Should have auto shrink disabled" time="0.015" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="msdb" executed="True" result="Success" success="True" time="0.068" asserts="0" description="msdb">
+                <results>
+                  <test-case description="Should be owned by sa" name="Database Settings on localhost\sql1.msdb.Should be owned by sa" time="0.0398" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto close disabled" name="Database Settings on localhost\sql1.msdb.Should have auto close disabled" time="0.011" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto shrink disabled" name="Database Settings on localhost\sql1.msdb.Should have auto shrink disabled" time="0.0172" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Demo0" executed="True" result="Success" success="True" time="0.0823" asserts="0" description="Demo0">
+                <results>
+                  <test-case description="Should be owned by sa" name="Database Settings on localhost\sql1.Demo0.Should be owned by sa" time="0.0655" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto close disabled" name="Database Settings on localhost\sql1.Demo0.Should have auto close disabled" time="0.0094" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto shrink disabled" name="Database Settings on localhost\sql1.Demo0.Should have auto shrink disabled" time="0.0073" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Demo1" executed="True" result="Success" success="True" time="0.0777" asserts="0" description="Demo1">
+                <results>
+                  <test-case description="Should be owned by sa" name="Database Settings on localhost\sql1.Demo1.Should be owned by sa" time="0.06" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto close disabled" name="Database Settings on localhost\sql1.Demo1.Should have auto close disabled" time="0.0108" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto shrink disabled" name="Database Settings on localhost\sql1.Demo1.Should have auto shrink disabled" time="0.0069" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Demo2" executed="True" result="Success" success="True" time="0.0883" asserts="0" description="Demo2">
+                <results>
+                  <test-case description="Should be owned by sa" name="Database Settings on localhost\sql1.Demo2.Should be owned by sa" time="0.0663" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto close disabled" name="Database Settings on localhost\sql1.Demo2.Should have auto close disabled" time="0.0142" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto shrink disabled" name="Database Settings on localhost\sql1.Demo2.Should have auto shrink disabled" time="0.0078" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Demo3" executed="True" result="Success" success="True" time="0.0638" asserts="0" description="Demo3">
+                <results>
+                  <test-case description="Should be owned by sa" name="Database Settings on localhost\sql1.Demo3.Should be owned by sa" time="0.044" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto close disabled" name="Database Settings on localhost\sql1.Demo3.Should have auto close disabled" time="0.013" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto shrink disabled" name="Database Settings on localhost\sql1.Demo3.Should have auto shrink disabled" time="0.0069" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Demo4" executed="True" result="Success" success="True" time="0.0682" asserts="0" description="Demo4">
+                <results>
+                  <test-case description="Should be owned by sa" name="Database Settings on localhost\sql1.Demo4.Should be owned by sa" time="0.0434" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto close disabled" name="Database Settings on localhost\sql1.Demo4.Should have auto close disabled" time="0.0134" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto shrink disabled" name="Database Settings on localhost\sql1.Demo4.Should have auto shrink disabled" time="0.0113" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Demo5" executed="True" result="Failure" success="False" time="0.4288" asserts="0" description="Demo5">
+                <results>
+                  <test-case description="Should be owned by sa" name="Database Settings on localhost\sql1.Demo5.Should be owned by sa" time="0.1572" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto close disabled" name="Database Settings on localhost\sql1.Demo5.Should have auto close disabled" time="0.0142" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto shrink disabled" name="Database Settings on localhost\sql1.Demo5.Should have auto shrink disabled" time="0.2574" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>Expected 0, but got '1'.</message>
+                      <stack-trace>at &lt;ScriptBlock&gt;, C:\PesterDemo\2_SQL\2_Databases.Tests.ps1: line 28
+28:                 $Database.AutoShrink | Should -Be 0</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Demo6" executed="True" result="Success" success="True" time="0.0774" asserts="0" description="Demo6">
+                <results>
+                  <test-case description="Should be owned by sa" name="Database Settings on localhost\sql1.Demo6.Should be owned by sa" time="0.063" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto close disabled" name="Database Settings on localhost\sql1.Demo6.Should have auto close disabled" time="0.0067" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto shrink disabled" name="Database Settings on localhost\sql1.Demo6.Should have auto shrink disabled" time="0.0077" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Demo7" executed="True" result="Success" success="True" time="0.0716" asserts="0" description="Demo7">
+                <results>
+                  <test-case description="Should be owned by sa" name="Database Settings on localhost\sql1.Demo7.Should be owned by sa" time="0.0527" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto close disabled" name="Database Settings on localhost\sql1.Demo7.Should have auto close disabled" time="0.0072" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto shrink disabled" name="Database Settings on localhost\sql1.Demo7.Should have auto shrink disabled" time="0.0117" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Demo8" executed="True" result="Success" success="True" time="0.0712" asserts="0" description="Demo8">
+                <results>
+                  <test-case description="Should be owned by sa" name="Database Settings on localhost\sql1.Demo8.Should be owned by sa" time="0.0457" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto close disabled" name="Database Settings on localhost\sql1.Demo8.Should have auto close disabled" time="0.0087" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto shrink disabled" name="Database Settings on localhost\sql1.Demo8.Should have auto shrink disabled" time="0.0168" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Demo9" executed="True" result="Success" success="True" time="0.0597" asserts="0" description="Demo9">
+                <results>
+                  <test-case description="Should be owned by sa" name="Database Settings on localhost\sql1.Demo9.Should be owned by sa" time="0.043" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto close disabled" name="Database Settings on localhost\sql1.Demo9.Should have auto close disabled" time="0.0113" asserts="0" success="True" result="Success" executed="True" />
+                  <test-case description="Should have auto shrink disabled" name="Database Settings on localhost\sql1.Demo9.Should have auto shrink disabled" time="0.0053" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="C:\PesterDemo\2_SQL\3_Configurations.Tests.ps1" executed="True" result="Success" success="True" time="0.1273" asserts="0" description="C:\PesterDemo\2_SQL\3_Configurations.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Instance Configuration on localhost\sql1" executed="True" result="Success" success="True" time="0.1273" asserts="0" description="Instance Configuration on localhost\sql1">
+            <results>
+              <test-case description="Remote Query Timeout should be 300" name="Instance Configuration on localhost\sql1.Remote Query Timeout should be 300" time="0.0799" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="Backup Compression Default should be set " name="Instance Configuration on localhost\sql1.Backup Compression Default should be set " time="0.0098" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="Minimum Server Memory should be set" name="Instance Configuration on localhost\sql1.Minimum Server Memory should be set" time="0.009" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="Maximum Server Memory should be set" name="Instance Configuration on localhost\sql1.Maximum Server Memory should be set" time="0.0072" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="Cost Threshold for Parallelism should be 50" name="Instance Configuration on localhost\sql1.Cost Threshold for Parallelism should be 50" time="0.0074" asserts="0" success="True" result="Success" executed="True" />
+              <test-case description="Max Degree of Parallelism should be set" name="Instance Configuration on localhost\sql1.Max Degree of Parallelism should be set" time="0.0139" asserts="0" success="True" result="Success" executed="True" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

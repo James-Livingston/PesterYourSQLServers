@@ -5,3 +5,5 @@ Make sure Demo0 has dbo.PesterResults
 Make sure Demo5 has auto shrink enabled
 
 Make sure HelloWorld has exclamation points
+
+Start Management Studio, connect to the instance, load Select-PesterResults
