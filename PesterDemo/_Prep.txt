@@ -1,3 +1,5 @@
+Start SSMS
+
 Make sure SQL is running and accessible
 
 Make sure Demo0 has dbo.PesterResults

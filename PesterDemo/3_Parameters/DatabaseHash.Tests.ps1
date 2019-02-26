@@ -3,7 +3,7 @@
     )
 
 #Capture database details on our instance
-$SQLInstance = 'localhost\sql1'
+$SQLInstance = 'localhost\SQL2017'
 
 $Query       = `
 "SELECT [name]

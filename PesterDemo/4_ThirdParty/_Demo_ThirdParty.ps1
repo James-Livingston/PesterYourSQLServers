@@ -11,10 +11,10 @@ Import-Module C:\Dev\PesterDemos\Modules\dbachecks-master\dbachecks.psm1
 Get-DbcCheck | Format-Table
 
 # Run MaxMemory Check
-Invoke-DbcCheck -SqlInstance 'localhost\sql1' -Check MaxMemory
+Invoke-DbcCheck -SqlInstance 'localhost\SQL2017' -Check MaxMemory
 
 # Run Instance Check
-Invoke-DbcCheck -SqlInstance 'localhost\sql1' -Check Instance
+Invoke-DbcCheck -SqlInstance 'localhost\SQL2017' -Check Instance
 
 # Run All Checks
-Invoke-DbcCheck -SqlInstance 'localhost\sql1' -AllChecks
+Invoke-DbcCheck -SqlInstance 'localhost\SQL2017' -AllChecks

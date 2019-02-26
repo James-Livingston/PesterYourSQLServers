@@ -1,5 +1,5 @@
 ﻿#Capture database details on our instance
-$SQLInstance = 'localhost\sql1'
+$SQLInstance = 'localhost\SQL2017'
 
 $Query       = `
 "SELECT [name], [value] 
@@ -24,10 +24,13 @@ Describe "Instance Configuration on $SQLInstance"  {
         $backupcompression = ($ConfigQueryRes | Where {$_.name -eq 'backup compression default'}).value
         $backupcompression | Should -Be 1
     }
-    It "Minimum Server Memory should be set" {
-        $minmem = ($ConfigQueryRes | Where {$_.name -eq 'min server memory (MB)'}).value
+
+    $minmem = ($ConfigQueryRes | Where {$_.name -eq 'min server memory (MB)'}).value
+    
+    It "Minimum Server Memory should be: $minmem" {
         $minmem | Should -Not -Be 0
     }
+
     It "Maximum Server Memory should be set" {
         $maxmem = ($ConfigQueryRes | Where {$_.name -eq 'max server memory (MB)'}).value
         $maxmem | Should -Not -Be 2147483647

@@ -33,7 +33,7 @@ $Results.TestResult | Where-Object {$_.Result -eq 'Failed'}
 $FailedTests = $Results.TestResult | Where-Object {$_.Result -eq 'Failed'} 
 
 foreach ($Test in $FailedTests) {
-    Invoke-Sqlcmd -ServerInstance 'localhost\sql1' -Database 'Demo0' -Query `
+    Invoke-Sqlcmd -ServerInstance 'localhost\SQL2017' -Database 'Demo0' -Query `
     "INSERT INTO [dbo].[PesterResults] VALUES
         ('$($Test.Describe)'
         ,'$($Test.Context)'
@@ -45,11 +45,10 @@ foreach ($Test in $FailedTests) {
 
 # Test Parameters with Script Hash Table
 Invoke-Pester -Script @{Path = 'C:\PesterDemo\3_Parameters\DatabaseHash.Tests.ps1'; Parameters = @{Database = 'Demo0'}}
-Invoke-Pester -Script @{Path = 'C:\PesterDemo\3_Parameters\DatabaseHash.Tests.ps1'; Parameters = @{Database = 'Demo2'}}
-Invoke-Pester -Script @{Path = 'C:\PesterDemo\3_Parameters\DatabaseHash.Tests.ps1'; Parameters = @{Database = 'Demo4'}}
+Invoke-Pester -Script @{Path = 'C:\PesterDemo\3_Parameters\DatabaseHash.Tests.ps1'; Parameters = @{Database = 'CorruptionChallenge6'}}
 
 # Test Parameters with Global Variables
-$global:DatabaseToTest = 'Demo1'
-Invoke-Pester -Script 'C:\Dev\PesterDemos\3_Parameters\DatabaseGlobal.Tests.ps1'
-$global:DatabaseToTest = 'Demo3'
-Invoke-Pester -Script 'C:\Dev\PesterDemos\3_Parameters\DatabaseGlobal.Tests.ps1'
+$global:DatabaseToTest = 'Demo0'
+Invoke-Pester -Script 'C:\PesterDemo\3_Parameters\DatabaseGlobal.Tests.ps1'
+$global:DatabaseToTest = 'CorruptionChallenge6'
+Invoke-Pester -Script 'C:\PesterDemo\3_Parameters\DatabaseGlobal.Tests.ps1'

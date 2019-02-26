@@ -1,7 +1,7 @@
 Describe 'SQL Server Services' {     
     
-    $EngineService = Get-DbaSqlService -InstanceName 'SQL1' -Type Engine
-    $AgentService  = Get-DbaSqlService -InstanceName 'SQL1' -Type Agent
+    $EngineService = Get-DbaSqlService -InstanceName 'SQL2017' -Type Engine
+    $AgentService  = Get-DbaSqlService -InstanceName 'SQL2017' -Type Agent
     
     Context 'SQL Server service' {
 

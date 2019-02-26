@@ -1,5 +1,5 @@
 ﻿#Capture database details on our instance
-$Databases = Get-DbaDatabase -SqlInstance 'localhost\sql1'
+$Databases = Get-DbaDatabase -SqlInstance 'localhost\SQL2017'
 
 #Testing
 Describe "Database Settings on $SQLInstance" {
